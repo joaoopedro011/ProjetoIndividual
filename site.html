@@ -21,12 +21,12 @@
       </ul>
     </nav>
   </header>
-  <section class="destaques">
-     <h2>📢 Destaques do Dia</h2>
-    <p>Última notícia: Corinthians se prepara para clássico!</p>
-    <p>Próximo jogo: Corinthians x Palmeiras - Domingo, 16h</p>
-
+  <section class="countdown">
+    <h2>Próximo jogo em:</h2>
+    <div id="timer">Carregando...</div>
   </section>
+  
+
   
 
 
@@ -36,3 +36,19 @@
 
 </body>
 </html>
+<script>
+
+  const proximoJogo = new Date("2025-05-01T19:00:00").getTime();
+  const timer = document.getElementById("timer");
+  setInterval(() => {
+    const agora = new Date().getTime();
+    const distancia = proximoJogo - agora;
+
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  }, 1000);
+</script>
