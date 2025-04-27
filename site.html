@@ -6,25 +6,36 @@
   <link rel="stylesheet" href="../site/style.css">
   <title>Document</title>
 </head>
-<body>
-  <header> 
-    <nav>
-      <ul>
-        <div class=" logo"><img src="http://static.corinthians.com.br/img/icones/logo-fieltorcedor-2023-P.png" alt=""></div>
-        <li><a href="#">Home</a></li>
-        <li><a href="#quiz">Quiz</a></li>
-        <li><a href="#escalacao">Escalação</a></li>
-        <li><a href="#mural">Mural</a></li>
-        <li><a href="#numeros">Números</a></li>
-        <li><a href="#palpites">Palpites</a></li>
-        <li><a href="#news">Notícias</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="countdown">
-    <h2>Próximo jogo em:</h2>
-    <div id="timer">Carregando...</div>
-  </section>
+<body> 
+    <div class="header">
+      <div class="container">
+        <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width="" height="40" style="filter: grayscale(1);">
+          <ul class="navbar">
+              <li>
+                  <a href="index.html">Inicial</a>
+              </li>
+              <li>
+                  <a href="simulador.html">Simulador</a>
+              </li>
+              <li>|</li>
+              <li>
+                  <a href="#">Login</a>
+              </li>
+              <li>
+                  <a href="cadastro.html">Cadastro</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <section>
+    <section class="countdown">
+      <img src="https://static.corinthians.com.br/uploads/oqjLBJEg/escudo-PBsite_header_desktop.jpg" alt="">
+      <div class="box">
+      <h3>Próximo jogo em:</h3>
+      <div id="timer">Carregando...</div>
+      </div>
+    </section>
+</section>
   
 
   
@@ -38,7 +49,7 @@
 </html>
 <script>
 
-  const proximoJogo = new Date("2025-05-01T19:00:00").getTime();
+  const proximoJogo = new Date("2025-04-27T16:00:00").getTime();
   const timer = document.getElementById("timer");
   setInterval(() => {
     const agora = new Date().getTime();
@@ -49,6 +60,6 @@
     const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-    timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s contra o Flamengo! Vamos apoiar, Fiel!`;
   }, 1000);
 </script>

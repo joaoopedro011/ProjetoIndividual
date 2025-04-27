@@ -1,45 +1,63 @@
+/* Adicionar aqui toda a estilização criada para sua aplicação. */
+
 body {
-    margin: 0px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color:var(--preto);
-    padding: 0;
-    color: var(--branco);
-    align-items: center;
-    justify-content: center;
-}
-:root {
-    --preto: #1c1c1c;
-    --branco: #f2f2f2;
-}
-header {
-  padding: 20px;
-  margin-top: 0px;  
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--branco);
-    height: 8vh;
-    margin: 0;
+  margin: 0px;
+  font-family: Arial, sans-serif;
 
 }
-  
-  nav ul li a {
-    color: var(--preto);
-    letter-spacing: 1px;
-    margin-left: 32px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-.logo {
-    justify-content: center;
-    margin: 10px 0 0;
+:root { /* Serve como 'variáveis' de elementos para o código, funciona com cores e tamanhos */
+ --preto: #000;
+ --branco: #fff;
+ --cinza: #807c7d;
+}
+.header {
+  background-color: var(--preto);
+  border-bottom: 3px solid var(--branco);
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  color: var(--cinza);
+  list-style: none; /* Pra tirar os marcadores de lista da lista de itens */
+  width: 300px;
+}
+.navbar a{
+  color: var(--cinza);
+  text-decoration: none; /* Tirar o sublinhado do texto */
+}
+.agora { /* Indicar em que página do site o cliente está */
+  font-weight: bolder    ;
 }
 .countdown{
     text-align: center;
-    margin: 30px 0;
-    color: #f2f2f2;
-  }
+    margin: 0px;
+    color: var(--preto);
+    z-index: 0;
 
+  }
+.countdown img{
+z-index: -2;
+width: 100%;
+margin: 0px;
+background-size:contain;
+image-resolution: 300dpi;
+
+}
+.box {
+  position: absolute;
+  left: 10px;
+  top: 110px;
+  background:var(--branco),(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  border-bottom: solid var(--branco);
+
+}
