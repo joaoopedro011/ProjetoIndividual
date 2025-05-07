@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universo SCCP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar do site -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
+        height="40" style="filter: grayscale(1);">
+    </div>
+    <nav class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#">QUIZ</a>
+      <a href="#">SOBRE NÓS</a>
+      <a href="#">SIGA-NOS</a>
+    </nav>
+    <div class="search"> Search</div>
+  </header>
+
+  <!-- Pagina principal -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Explore o Mundo do Corinthians</h1>
+      <p>Descubra a história, notícias e elenco</p>
+      <div class="hero-box">
+        <h3>Próximo jogo em:</h3>
+        <div id="timer">Carregando...</div>
+      </div>
+      <button class="but_cadastro" onclick="entrar()"><a href="../Prototipo SIte/cadastro.html">Entrar</a></button>
+      <button class="but_entrar" onclick="entrar()"><a href="../Prototipo SIte/cadastro.html">Cadastrar-se</a></button>
+    </div>
+    <div class="hero-image">
+      <video src="C:\Users\joaop\Downloads\videoplayback.mp4" alt="videoSiteEdit" autoplay loop muted playsinline style="position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;"></video>
+    </div>
+  </section>
+
+  <!-- Area do blog -->
+  <section class="blog" id="blog">
+    <h2>Blog</h2>
+    <div class="blog-cards">
+      <div class="card">
+        <div class="card-image1">
+        </div>
+        <h3>Quiz Interativo do Corinthians: Teste Seu Conhecimento!</h3>
+        <p>João Pedro</p>
+        <div class="card-footer">
+          <span>👁️ 290</span>
+          <span>❤️ 200</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image2" id="historia"></div>
+        <h3>História do Corinthians: Conheça os Títulos e Elenco Atual.</h3>
+        <p>João Pedro</p>
+        <div class="card-footer">
+          <span>👁️ 340</span>
+          <span>❤️ 298</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image3"></div>
+        <h3>Faz parte da família Corinthians em SP? Descubra as Últimas Notícias!</h3>
+        <p>João Pedro</p>
+        <div class="card-footer">
+          <span>👁️ 230</span>
+          <span>❤️ 157</span>
+        </div>
+      </div>
+    </div>
+  <hr style="width: 93%;
+  margin-left: 0px;
+  margin-top: 60px;
+  border: 1px #fff;">
+  </section>
+
+  <!-- Area para falar sobre o site-->
+  <section class="sobrenos" id="sobrenos">
+    <h1>Sobre nós:</h1><br>
+  
+    <div class="sobrenos-text">
+      <p> Somos uma página dedicada ao compartilhamento de conteúdos que envolvam o clube Sport Clube Corinthians
+        Paulista.
+        Essa página nasceu pelo amor e dedicação ao clube, pela vontade de espalhar sua história e para explorar suas
+        conquistas e glórias mil.
+      </p>
+    </div>
+    <div class="sobrenos-text2">
+      <p>
+        Mais do que um time, o Corinthians faz parte de nossa identidade. E esse espaço é um ponto de encontro para quem
+        vive essa paixão todos os dias.
+        Seja bem-vindo!
+      </p>
+    </div>
+    
+  </section>
+
+  
+  <!-- Siga-nos -->
+  <div class="redes-sociais">
+    <div class="siganos-cards">
+      <h1>Siga-nos nas redes sociais</h1>
+      <div class="plataforma">
+        <div><a href="https://www.instagram.com/corinthians?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+          <img src="C:\Users\joaop\Downloads\icons8-instagram-50.png" alt="" width="40px" height="40px"></a></div>
+        
+          <div><a href="https://x.com/Corinthians">
+          <img src="C:\Users\joaop\Downloads\icons8-twitter-60.png" alt="" width="50x" height="50px"></a></div>
+        
+          <div> <a href="https://www.linkedin.com/company/sccorinthians">
+          <img src="C:\Users\joaop\Downloads\icons8-linkedin-50.png" alt="" width="40px" height="40px"></a></div>
+        
+          <div><a href="https://github.com/joaoopedro011/ProjetoIndividual">
+            <img src="C:\Users\joaop\Downloads\icons8-github-60.png" alt="" width="40px" height="40px"></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ 
+
+      <!-- SESSAO DO FOOTER -->
+      <div class="container-footer">
+        <div class="footer-conteudo">
+            <div class="background">
+                <div class="links">
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#sobrenos">Sobre nós</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <div class="direitos">
+                        <!-- Mensagem direitos da lista -->
+                        <p>Universo SCCP. Para os fiéis de coração!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+</body>
+
+</html>
+
+<script>
+
+  var proximoJogo = new Date("2025-05-29T16:00:00").getTime();
+  var timer = document.getElementById("timer");
+  setInterval(() => {
+    var agora = new Date().getTime();
+    var distancia = proximoJogo - agora;
+
+    var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s para o Projeto! Vamos, Corinthians!`;
+  }, 1000);
+</script>
