@@ -18,6 +18,9 @@
     padding: 20px 40px;
     background-color: #000;
     border-bottom: 3px solid #fff;
+    position: sticky; /* ___ADICIONADO: mantém a navbar fixa___ */
+    top: 0;            /* ___ADICIONADO___ */
+    z-index: 1000;  
   }
   
   .logo {

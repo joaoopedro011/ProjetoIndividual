@@ -7,6 +7,7 @@ body {
     font-family: "Raleway", sans-serif;
     background-color: #fff;
     color: #000;
+    
 }
 .navbar {
     display: flex;
@@ -15,6 +16,9 @@ body {
     padding: 20px 40px;
     background-color: #fff;
     border-bottom: 3px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;     
   }
   
   .logo {
@@ -32,29 +36,62 @@ body {
   .search {
     cursor: pointer;
   }
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
   .historia h1{
     font-size: 40px;
     margin-top: 80px;
     font-weight: 800;
     margin-left: 80px;
+    text-align: center;
   }
   .historia h2{
     font-size: 20px;
     margin-top: 8px;
     font-weight: 800;
     margin-left: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+
+  }
+  .titulo, .titulo2 {
+    font-size: 18px;        
+    text-align: center;      
+    margin-top: 80px; 
+    margin-bottom: 0px;
+      
   }
   .card-historia {
-    margin-left:80px;
-    margin-right: 800px;
-    margin-top: 40px;
-    font-size:15px ;
-
+    justify-content: center;        
+    gap: 80px;                      
+    max-width: 1200px;
+    margin: 20px auto;              /* ___AJUSTADO para centralização___ */
+    padding: 0px;
+    line-height: 1.6;               /* ___ADICIONADO: melhora leitura___ */  
     display: flex;
-    flex-direction:column;
-    justify-content: space-between;
+    flex-direction:row;
+    align-items: center;
+    text-align: justify;
 }
-.card-historia img {
-    margin-top: 10px;
-    
+.card-historia2{
+  display: flex;
+  flex-direction: row-reverse;  
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 20px;
+  padding: 0px;
+  line-height: 1.6;
+  text-align: justify;
 }
+.card-historia img, .card-historia2 img {
+    border-radius: 10px;
+    width: 300px;               
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;}
