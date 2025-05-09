@@ -20,7 +20,7 @@
     </div>
     <nav class="nav-links">
       <a href="#home">HOME</a>
-      <a href="#">QUIZ</a>
+      <a href="#">GAME</a>
       <a href="#">SOBRE NÓS</a>
       <a href="#">SIGA-NOS</a>
     </nav>
@@ -54,7 +54,7 @@
     <h2>Blog</h2>
     <div class="blog-cards">
       <div class="card">
-        <div class="card-image1">
+        <div class="card-image1" onclick="game()">
         </div>
         <h3>Quiz Interativo do Corinthians: Teste Seu Conhecimento!</h3>
         <p>João Pedro</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="card">
-        <div class="card-image2" id="historia"></div>
+        <div class="card-image2" onclick="historia()"></div>
         <h3>História do Corinthians: Conheça os Títulos e Elenco Atual.</h3>
         <p>João Pedro</p>
         <div class="card-footer">
@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-  <hr style="width: 93%;
+  <hr style="height: 100%;
   margin-left: 0px;
   margin-top: 60px;
   border: 1px #fff;">
@@ -115,7 +115,7 @@
   <!-- Siga-nos -->
   <div class="redes-sociais">
     <div class="siganos-cards">
-      <h1>Siga-nos nas redes sociais</h1>
+      <h1>Siga o Corinthians nas redes!</h1>
       <div class="plataforma">
         <div><a href="https://www.instagram.com/corinthians?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
           <img src="C:\Users\joaop\Downloads\icons8-instagram-50.png" alt="" width="40px" height="40px"></a></div>
@@ -131,35 +131,41 @@
           </div>
         </div>
       </div>
+      
+ <hr style="width:100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  margin-left: 0px;
+  margin-top: 150px;
+  border: 2px solid #fff;">
+
       </div>
- 
 
       <!-- SESSAO DO FOOTER -->
-      <div class="container-footer">
-        <div class="footer-conteudo">
-            <div class="background">
-                <div class="links">
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#sobrenos">Sobre nós</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                    <div class="direitos">
-                        <!-- Mensagem direitos da lista -->
-                        <p>Universo SCCP. Para os fiéis de coração!</p>
-                    </div>
+        <div class="footer-site">
+          <div class="container-footer">
+            <div class="faleconosco">Fale conosco:
+              <img class="imgIndex" src="../imgIndex/email.png" alt="" width="30px" height="30px"><img class="imgIndex"
+            src="../imgIndex/wpp.png" alt="" width="35px" height="35px">
+              </div>
+            <div class="links">
+                      <ul>
+                          <li><a href="#hero">Home</a></li>
+                          <li><a href="#blog">Blog</a></li>
+                          <li><a href="#sobrenos">Sobre nós</a></li>
+                          <li><a href="#contato">Contato</a></li>
+                      </ul>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</body>
+              </div>
+                    <span class="direitos">
+                      <!-- Mensagem direitos da lista -->
+                      <p>Universo SCCP. Para os fiéis de coração!</p>
+                    </span>
+      
+  </body>
 </html>
-
-</body>
-
-</html>
-
 <script>
 
   var proximoJogo = new Date("2025-05-29T16:00:00").getTime();
@@ -175,4 +181,11 @@
 
     timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s para o Projeto! Vamos, Corinthians!`;
   }, 1000);
+
+  function game(){
+    window.location.href= 'gameComSeta.html'
+  }
+  function historia(){
+    window.location.href= 'historia.html'
+  }
 </script>

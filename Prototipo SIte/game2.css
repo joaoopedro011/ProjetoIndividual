@@ -1,13 +1,14 @@
 body{
-    background-image: url(../porteria1.jpg);
+    background-image: url(../imgGame/porteria1.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;
+    margin-bottom: 0px;
 
 }
 
 #bola{
-    background-image: url(../bola.png);
+    background-image: url(../imgGame/bola.png);
     background-size: 100%;
     width: 70px;
     height: 70px;
@@ -21,7 +22,7 @@ body{
 
 
 #portero{
-    background-image: url(../portero.png);
+    background-image: url(../imgGame/portero.png);
     background-size: 100%;
     height: 250px;
     width: 250px;
