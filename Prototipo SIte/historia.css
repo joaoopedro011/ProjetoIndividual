@@ -58,40 +58,37 @@ body {
     text-align: center;
 
   }
+  .todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .titulo, .titulo2 {
-    font-size: 18px;        
-    text-align: center;      
+    font-size: 18px;             
     margin-top: 80px; 
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
       
   }
-  .card-historia {
-    justify-content: center;        
+  .card-historia, .card-historia2 {
     gap: 80px;                      
     max-width: 1200px;
-    margin: 20px auto;              /* ___AJUSTADO para centralização___ */
+    margin: 20px;              /* ___AJUSTADO para centralização___ */
     padding: 0px;
-    line-height: 1.6;               /* ___ADICIONADO: melhora leitura___ */  
-    display: flex;
-    flex-direction:row;
+    line-height: 1.4;               /* ___ADICIONADO: melhora leitura___ */  
+    display: flex;       
     align-items: center;
     text-align: justify;
 }
 .card-historia2{
-  display: flex;
   flex-direction: row-reverse;  
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 20px;
-  padding: 0px;
-  line-height: 1.6;
-  text-align: justify;
+  
 }
-.card-historia img, .card-historia2 img {
-    border-radius: 10px;
-    width: 300px;               
-    height: auto;
-    object-fit: cover;
-    flex-shrink: 0;}
+.card-historia img, .card-historia2 img{
+  border-radius: 10px;
+  margin-top: 110px;
+  flex-shrink: 0;
+}
