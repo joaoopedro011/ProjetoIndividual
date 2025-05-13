@@ -158,7 +158,7 @@
     display: flex;
     justify-content: center;
     background-image: url(https://static.corinthians.com.br/uploads/1745875715c338d814c14c9d479eb5ec0b99d887f6.jpg);
-
+    cursor: pointer;
   }
   
   .card h3 {
