@@ -1,42 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universo SCCP</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="cadastro.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AquaTech | Cadastro</title>
+
+  <link rel="stylesheet" href="../Prototipo SIte/styles/cadastro.css" />
+  
 </head>
 
 <body>
-  <!-- Navbar do site -->
-  <header class="navbar">
+    <header class="navbar">
     <div class="logo">
       <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
         height="40" style="filter: grayscale(1);">
     </div>
     <nav class="nav-links">
-      <a href="#hero">HOME</a>
-      <a href="#">QUIZ</a>
-      <a href="#">SOBRE NÓS</a>
-      <a href="#">SIGA-NOS</a>
+      <a href="#home">HOME</a>
+      <a href="#">GAME</a>
     </nav>
-    <div class="search">🔍 Search</div>
+    <div class="search"> Search</div>
   </header>
 
-  <!-- Pagina principal -->
-   <section>
-    <div class="cadastro">
-      <div class="card">
-        <div class="card-cadastro">
-          <h1>Cadastre-se em nosso site!</h1>
-          <input type="text" class="inp_cadastro" id="cadastro_email" placeholder="Insira um email para cadastro:"><br>
-          <input type="text" class="inp_senha" id="cadastro_senha" placeholder="Insira uma senha para cadastro:"><br>
-          <button class="but_cadastro" onclick="cadastrar()">Cadastrar-se</button>
-          
-        
+  <div class="login">
+
+    <div class="container">
+      <div class="card card-cadastro">
+        <h2>Bem-vindo!</h2>
+        <div class="formulario">
+          <div class="campo">
+            <span>Código de ativação:</span>
+            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
+          </div>
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="nome_input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+          </div>
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" placeholder="******" />
+          </div>
+          <div class="campo">
+            <span>Confirmação da Senha:</span>
+            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+          </div>
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
       </div>
     </div>
-   </section>
+  </div>
+
+  <script>
+    function cadastrar(){
+      window.location = 'login.html'
+    }
+  </script>
+ 

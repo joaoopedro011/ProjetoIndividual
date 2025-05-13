@@ -1,0 +1,111 @@
+body {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+
+}
+:root{
+    --branco: #f9f9f9;
+    --preto: #000;
+    --cinza: #333;
+  }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--preto);
+    border-bottom: 3px solid var(--branco);
+    position: sticky; /* ___ADICIONADO: mantém a navbar fixa___ */
+    top: 0;            /* ___ADICIONADO___ */
+    z-index: 1000;  
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 500;
+  }
+  
+  .search {
+    cursor: pointer;
+  }
+
+    .container {
+   height: 790px;
+     width: 100%;
+    background-image: url(../imgHistoria/2020-2025.jpg);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.login {
+height:600px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.login .container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcdcdc;
+
+
+}
+.card-cadastro {
+    backdrop-filter: blur(40px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 400px;
+  }
+
+  .card-cadastro h2 {
+    text-align: center;
+    color: var(--cinza);
+  }
+
+  .formulario .campo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formulario .campo span {
+    font-size: 14px;
+    margin-top: 10px;
+    color:var(--cinza);
+    font-weight: bold;
+  }
+
+  .formulario .campo input {
+    padding: 5px;
+    border: 3px solid var(--cinza);
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .botao {
+    margin-top: 10px;
+    display: flex;
+    right: 100px;
+    margin-left: 300px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    padding: 12px;
+    background-color: var(--cinza);
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
