@@ -11,8 +11,6 @@
 </head>
 
 <body>
-    
-    <!-- EL AUDIO SI NO SE ESCUCHA ES POR LOS PERMISOS DEL NAVEGADOR -->
 
     <div id="marcador">
 
@@ -26,7 +24,7 @@
     <div id="bola"></div>
     <div id="portero"></div>
     <div id="flechas">
-        <span class="material-symbols-outlined" onclick="izq()">
+        <span class="material-symbols-outlined" onclick="esq()">
             arrow_back
         </span>
         <span class="material-symbols-outlined" onclick="rec()">
@@ -77,7 +75,7 @@
             }, { once: true });
 
             bola1.addEventListener('animationend', function () {
-                bola1.classList.remove("animarizq");
+                bola1.classList.remove("animaresq");
             }, { once: true });
 
 
@@ -90,7 +88,7 @@
             }, { once: true });
 
             portero1.addEventListener('animationend', function () {
-                portero1.classList.remove("aniizq");
+                portero1.classList.remove("aniesq");
             }, { once: true });
 
 
@@ -114,7 +112,7 @@
 
 
             const portero1 = document.querySelector("#portero")
-            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientos = ["anider", "aniesq", "anirec"];
             const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
 
 
@@ -144,7 +142,7 @@
 
 
             const portero1 = document.querySelector("#portero")
-            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientos = ["anider", "aniesq", "anirec"];
             const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
 
 
@@ -167,22 +165,22 @@
 
 
         }
-        function izq() {
+        function esq() {
             const bola1 = document.querySelector("#bola");
 
-            bola1.classList.add("animarizq");
+            bola1.classList.add("animaresq");
 
 
 
             const portero1 = document.querySelector("#portero")
-            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientos = ["anider", "aniesq", "anirec"];
             const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
 
 
             portero1.classList.add(movimientoAleatorio)
 
 
-            if (movimientoAleatorio == "aniizq") {
+            if (movimientoAleatorio == "aniesq") {
                 setTimeout(function () {
                     alert("Perdeeeu o pênalti!");
                     fallos1.textContent = marcaf
@@ -207,7 +205,7 @@
 
         document.addEventListener('keydown', function (event) {
             if (event.key === 'ArrowLeft') {
-                izq();
+                esq();
             }
         });
 
