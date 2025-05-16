@@ -57,3 +57,39 @@ margin-bottom: 30px;
 hr{
     margin-top: 40px;
 }
+  
+  .redes-sociais {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: space-around;
+
+  }
+  
+  .redes-sociais h1 {
+    font-size: 30px;
+  }
+  
+  .siganos-cards {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .plataforma {
+    display: flex;
+    flex-direction: row; 
+  
+    margin-top: 70px;
+    justify-content: space-around;
+    align-items: center;
+;
+  }
+
+.direitos p{
+    color: var(--branco);
+    text-align: center;
+    font-size: 14px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
