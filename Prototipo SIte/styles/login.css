@@ -1,7 +1,7 @@
-body {
+html, body {
     margin: 0px;
     font-family: Arial, sans-serif;
-
+  overflow: hidden;
 }
 :root{
     --branco: #f9f9f9;
@@ -37,26 +37,15 @@ body {
   }
 
     .container {
-   height: 790px;
-    width: 100%;
-    background-image: url(../imgHistoria/2020-2025.jpg);
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
+  display: flex;
+   height: 89vh;
+   max-width: 180vh;
 }
-
-.login {
-background-size: cover;
-height:600px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.login .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container img{
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
 }
 
   .formulario .campo {
@@ -67,19 +56,21 @@ align-items: center;
   .formulario .campo span {
     font-size: 14px;
     margin-top: 10px;
-    color: var(--preto);
+    color: var(--branco);
     font-weight: bold;
+     margin-top: 30px;
   }
 
   .formulario .campo input {
     padding: 5px;
-    border: 3px solid var(--cinza);
+    border: 3px solid var(--preto);
     border-radius: 8px;
     font-size: 14px;
+    
   }
 
   .botao {
-    margin-top: 10px;
+   margin-top: 30px;
     display: flex;
     right: 100px;
     margin-left: 300px;
@@ -87,11 +78,12 @@ align-items: center;
     align-items: center;
     width: 100px;
     padding: 12px;
-    background-color: var(--cinza);
-    color: var(--branco);
+    background-color: var(--preto);
+    color: white;
     border: 0;
     border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
 }
 .card-login{
     display: flex;
@@ -99,12 +91,12 @@ align-items: center;
     align-items: center;
     flex-direction: column;
     backdrop-filter: blur(20px);
-    border-radius: 16px;
     padding: 40px;
+    background-color: #333;
     
 }
 .card-login h2{
     text-align: center;
-    color: var(--preto);
+    color: var(--branco);
 
 }
