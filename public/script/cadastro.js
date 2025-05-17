@@ -10,8 +10,9 @@
       else if (senha != confirmarSenha){
         alert('Preencha os campos com as mesmas senhas!')
       }
-      else if (email.includes('@','.')){
+      else if (email.includes('@') && email.includes('.')){
         alert('Sua conta foi registrada. Seja-bem vindo fiel!');
+
            fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -22,8 +23,7 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nome,
         emailServer: email,
-        senhaServer: senha,
-        
+        senhaServer: senha
       }),
     })
       .then(function (resposta) {
