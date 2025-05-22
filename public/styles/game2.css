@@ -20,7 +20,7 @@ body{
 }
 
 
-#portero{
+#goleiro{
     background-image: url(../imgs/imgGame/portero.png);
     background-size: 100%;
     height: 300px;
@@ -51,10 +51,10 @@ body{
 
 
 .animar {
-    animation: moverArribaDerecha 1s forwards;
+    animation: moverAcimaDireita 1s forwards;
   }
   
-  @keyframes moverArribaDerecha {
+  @keyframes moverAcimaDireita {
     from {
       transform: translate(0, 0);
     }
@@ -65,11 +65,11 @@ body{
     }
   }
 
-  .animarrec {
-    animation: moverRecto 1s forwards;
+  .animarmid {
+    animation: movermid 1s forwards;
   }
   
-  @keyframes moverRecto {
+  @keyframes movermid {
     from {
       transform: translate(0, 0);
     }
@@ -97,11 +97,11 @@ body{
     }
   }
 
-  .anider {
-    animation: moverPorDer 1s forwards;
+  .anidir {
+    animation: moverPorDir 1s forwards;
   }
   
-  @keyframes moverPorDer {
+  @keyframes moverPorDir {
     from {
       transform: translate(0, 0);
     }
@@ -140,11 +140,11 @@ body{
   }
 
   
-  .colocarPortero {
-    animation: colocoPortero 1s forwards;
+  .colocargoleiro {
+    animation: colocogoleiro 1s forwards;
   }
   
-  @keyframes colocoPortero {
+  @keyframes colocogoleiro {
     from {
       transform: translate(0, 0);
     }
@@ -156,7 +156,7 @@ body{
 
 
   
-  #goles{
+  #gols{
     margin-left: 20px;
     
     margin-top: 20px;
@@ -166,7 +166,7 @@ body{
     
   }
 
-  #fallos{
+  #erro{
     color: red;
     
     height: 40px;

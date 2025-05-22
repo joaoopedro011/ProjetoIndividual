@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Universo SCCP</title>
-  <link rel="stylesheet" href="../public/styles/style.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -19,10 +19,10 @@
         height="40" style="filter: grayscale(1);">
     </div>
     <nav class="nav-links">
-      <a href="#home">HOME</a>
-      <a href="#">GAME</a>
-      <a href="#">SOBRE NÓS</a>
-      <a href="#">SIGA-NOS</a>
+      <a href="./index.html">HOME</a>
+      <a href="./gameComSeta.html">GAME</a>
+      <a href="#sobrenos">SOBRE NÓS</a>
+      <a href="#siganos">SIGA-NOS</a>
     </nav>
     <div class="search"> Search</div>
   </header>
@@ -48,7 +48,17 @@
         object-fit: cover;"></video>
     </div>
   </section>
-
+<div>
+  <h2 class="titulo">Acompanhe as principais notícias:</h2>
+  <swiper-container class="mySwiper" loop pagination="true" pagination-clickable="false" space-between="45"
+  slides-per-view="3">
+    <swiper-slide><img src="./imgs/imgNoticia/noticia1.jpg" alt=""><h2>Corinthians celebra números nos redes sociais e crescimento relevante no YouTube.</h2></swiper-slide>
+    <swiper-slide><img src="./imgs/imgNoticia/noticia2.jpg" alt=""><h2>Técnico do Corinthians projeta duelo contra o Racing e cobra mais regularidade da equipe</h2></swiper-slide>
+    <swiper-slide><img src="./imgs/imgNoticia/noticia3.jpg" alt=""><h2>Memphis Depay sofre torção no tornozelo durante treino e desfalca Corinthians na Sul-Americana</h2></swiper-slide>
+    <swiper-slide><img src="./imgs/imgNoticia/noticia4.jpg" alt=""><h2>Corinthians lança oficialmente nova camisa II inspirada no Mundial de 2000</h2></swiper-slide>
+    <swiper-slide><img src="./imgs/imgNoticia/noticia5.jpg" alt=""><h2>NFL escolhe 'clássico' para segundo jogo da liga na Neo Química Arena, estádio do Corinthians</h2></swiper-slide>
+  </swiper-container>
+</div>
   <!-- Area do blog -->
   <section class="blog" id="blog">
     <h2>Blog</h2>
@@ -74,16 +84,7 @@
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-image3" onclick="noticias()"></div>
-        <h3>Faz parte da família Corinthians em SP? Descubra as Últimas Notícias!</h3>
-        <p>João Pedro</p>
-        <div class="card-footer">
-          <span>👁️ 230</span>
-          <span>❤️ 157</span>
-        </div>
-      </div>
-    </div>
+     
   <hr style="height: 100%;
   margin-left: 0px;
   margin-top: 60px;
@@ -91,8 +92,8 @@
   </section>
 
   <!-- Area para falar sobre o site-->
-  <section class="sobrenos" id="sobrenos">
-    <h1>Sobre nós:</h1><br>
+  <section class="sobrenos">
+    <h1 id="sobrenos">Sobre nós:</h1><br>
   
     <div class="sobrenos-text">
       <p> Somos uma página dedicada ao compartilhamento de conteúdos que envolvam o clube Sport Clube Corinthians
@@ -146,8 +147,8 @@
         <div class="footer-site">
           <div class="container-footer">
             <div class="faleconosco">Fale conosco:
-              <img class="imgIndex" src="../Prototipo SIte/imgIndex/email.png" alt="" width="30px" height="30px"><img class="imgIndex"
-            src="../Prototipo SIte/imgIndex/wpp.png" alt="" width="35px" height="35px">
+              <img class="imgIndex" src="./imgs/imgIndex/email.png" alt="" width="30px" height="30px"><img class="imgIndex"
+            src="./imgs/imgIndex/wpp.png" alt="" width="30px" height="30px">
               </div>
             <div class="links">
                       <ul>
@@ -183,12 +184,14 @@
   }, 1000);
 
   function game(){
-    window.location.href= 'gameComSeta.html'
+    window.location.href= '../public/gameComSeta.html'
   }
   function historia(){
-    window.location.href= 'historia.html'
+    window.location.href= '../public/historia.html'
   }
   function noticias(){
-    window.location.href= 'noticia.html'
+    window.location.href= '../public/noticia.html'
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+

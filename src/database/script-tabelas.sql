@@ -20,19 +20,19 @@ create table noticia(
 idNoticia int primary key auto_increment,
 titulo varchar(100),
 conteudo varchar(250),
-fkAutor int, constraint fkAutorNoticia foreign key (fkAutor) references usuario(idUsuario)
+fkAutor int, constraint fkAutorNoticia foreign key (fkAutor) references usuario(idUsuario),
 dtNoticia datetime
 );
 create table jogo(
 idRodada int primary key auto_increment,
 acertos varchar(45),
 erros varchar(100),
-media varchar(100)
+media varchar(100),
 fkUsuario int, constraint fkUsuarioJogo foreign key (fkUsuario) references usuario(idUsuario)
 );
 
 insert into usuario values
-(default, 'ADM João', 'admjoao@gmail.com', 'adm123');
+(default, 'João Pedro Neto', 'admjoao@gmail.com', 'adm123');
 
 
 insert into noticia values

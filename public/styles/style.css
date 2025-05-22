@@ -75,7 +75,7 @@
     margin-bottom: 30px;
   }
   
-  .hero-text button {
+  .but_cadastro, .but_entrar {
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
@@ -84,6 +84,7 @@
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    text-decoration: none;
   }
   
   .hero-image {
@@ -295,3 +296,47 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+
+
+h2 {
+  display: flex;
+  font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+  margin-top: 100px;
+  justify-content: center;
+  
+}
+swiper-container {
+      max-width: 100%;
+      height: 100%;      
+    }
+
+    swiper-slide{
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    swiper-slide h2 {
+    font-size: 20px;
+    font-weight: 500;
+    }
+ 
+swiper-slide img {
+      display: flex;
+      height: 38vh;
+      width: 100%;
+      background-size: cover;
+      border-radius: 16px;
+      
+    }

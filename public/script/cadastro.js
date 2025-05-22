@@ -32,7 +32,7 @@
         if (resposta.ok) {
 
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "../login.html";
           }, "2000");
 
           limparFormulario();
@@ -55,6 +55,10 @@
     }
 
 
-
+    function entrar(){
+       if (nome == ''|| email == ''|| senha == '' || confirmarSenha == ''){
+        alert('Todos os campos são obrigatórios!')
+      }
+    }
 
     
