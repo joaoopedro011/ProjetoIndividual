@@ -47,11 +47,11 @@
   /* Hero Section */
   .hero {
     display: flex;
-    height: 80vh;
+    height:75vh;
     border-bottom: 2px solid var(--branco);
-
   }
-  
+
+
   .hero-text {
     flex: 1;
     background-color: #1c1c1c;
@@ -72,19 +72,19 @@
   }
   .hero-box {
     color: var(--branco);
-    margin-bottom: 30px;
+    margin-bottom: 30px
   }
   
   .but_cadastro, .but_entrar {
-    padding: 10px 20px;
+    padding: 10px 0px;
     border: none;
     border-radius: 25px;
     background-color: var(--branco);
-    color: var(--preto);
+    color: #000;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
-    text-decoration: none;
+    
   }
   
   .hero-image {
@@ -99,7 +99,8 @@
   .blog {
    
     background-color: var(--preto);
-    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
     margin-top: 100px;
   }
   
@@ -110,8 +111,9 @@
   
   .blog-cards {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-left: 100px;
   }
   
   .card {
@@ -313,7 +315,7 @@ h2 {
   
 }
 swiper-container {
-      max-width: 100%;
+      max-width:100%;
       height: 100%;      
     }
 
@@ -328,15 +330,18 @@ swiper-container {
     }
 
     swiper-slide h2 {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 500;
+    max-width: 590px;
+    margin-bottom: 60px;
+
     }
  
 swiper-slide img {
       display: flex;
-      height: 38vh;
-      width: 100%;
+      height: 48vh;
+      width: 80vh;
       background-size: cover;
-      border-radius: 16px;
-      
+      border-radius: 10px;
+      cursor: pointer;
     }

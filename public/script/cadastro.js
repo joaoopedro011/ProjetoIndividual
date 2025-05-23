@@ -32,7 +32,7 @@
         if (resposta.ok) {
 
           setTimeout(() => {
-            window.location = "../login.html";
+            window.location = "./public/login.html";
           }, "2000");
 
           limparFormulario();
