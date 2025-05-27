@@ -7,8 +7,9 @@
   <title>Universo SCCP</title>
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +41,8 @@
       <button class="but_entrar" onclick="entrar()"><a href="cadastro.html">Cadastrar-se</a></button>
     </div>
     <div class="hero-image">
-      <video src="./imgs/imgIndex/BASTIDORES DA LOUCURA ｜ TEASER.mp4" alt="videoSiteEdit" autoplay loop muted playsinline style="position: absolute;
+      <video src="./imgs/imgIndex/BASTIDORES DA LOUCURA ｜ TEASER.mp4" alt="videoSiteEdit" autoplay loop muted
+        playsinline style="position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -48,19 +50,33 @@
         object-fit: cover;"></video>
     </div>
   </section>
-<div>
-  <h2 class="titulo">Acompanhe as principais notícias:</h2>
-  <swiper-container class="mySwiper" loop  autoplay-delay="4000" autoplay-disable-on-interaction="false" space-between="45"
-   pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
-  coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-  slides-per-view="2">
-    <swiper-slide><img  value="1" onclick="noticia1(this)" src="./imgs/imgNoticia/noticia1(2).png" alt=""><h2>Corinthians celebra números nos redes sociais e crescimento relevante no YouTube.</h2></swiper-slide>
-    <swiper-slide><img  value="2" onclick="noticia1(this)" src="./imgs/imgNoticia/noticia2.jpg" alt=""><h2>Técnico do Corinthians projeta duelo contra o Racing e cobra mais regularidade da equipe</h2></swiper-slide>
-    <swiper-slide><img  value="3" onclick="noticia1(this)" src="./imgs/imgNoticia/noticia3.jpg" alt=""><h2>Memphis Depay sofre torção no tornozelo durante treino e desfalca Corinthians na Sul-Americana</h2></swiper-slide>
-    <swiper-slide><img  value="4" onclick="noticia1(this)" src="./imgs/imgNoticia/noticia4(2).jpg" alt=""><h2>Corinthians lança oficialmente nova camisa II inspirada no Mundial de 2000</h2></swiper-slide>
-    <swiper-slide><img  value="5" onclick="noticia1(this)" src="./imgs/imgNoticia/noticia5.jpg" alt=""><h2>NFL escolhe 'clássico' para segundo jogo da liga na Neo Química Arena, estádio do Corinthians</h2></swiper-slide>
-  </swiper-container>
-</div>
+
+
+  <div>
+    <h2 class="titulo">Acompanhe as principais notícias:</h2>
+    <swiper-container class="mySwiper" loop autoplay-delay="3000" autoplay-disable-on-interaction="false"
+      space-between="45" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+      coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+      coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" slides-per-view="2">
+      <swiper-slide><img data-value="0" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia1(2).png" alt=""></a>
+      <h2>Corinthians celebra números nos redes sociais e crescimento relevante no YouTube.</h2>
+    </swiper-slide>
+      <swiper-slide><img data-value="1" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia2.jpg" alt="">
+        <h2>Técnico do Corinthians projeta duelo contra o Racing e cobra mais regularidade da equipe</h2>
+      </swiper-slide>
+      <swiper-slide><img data-value="2" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia3.jpg" alt="">
+        <h2>Memphis Depay sofre torção no tornozelo durante treino e desfalca Corinthians na Sul-Americana</h2>
+      </swiper-slide>
+      <swiper-slide><img data-value="3" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia4(2).jpg" alt="">
+        <h2>Corinthians lança oficialmente nova camisa II inspirada no Mundial de 2000</h2>
+      </swiper-slide>
+      <swiper-slide><img data-value="4" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia5.jpg" alt="">
+        <h2>NFL escolhe 'clássico' para segundo jogo da liga na Neo Química Arena, estádio do Corinthians</h2>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
+
   <!-- Area do blog -->
   <section class="blog" id="blog">
     <h2>Blog</h2>
@@ -86,8 +102,8 @@
         </div>
       </div>
 
-     
-  <hr style="height: 100%;
+
+      <hr style="height: 100%;
   margin-left: 0px;
   margin-top: 60px;
   border: 1px #fff;">
@@ -96,7 +112,7 @@
   <!-- Area para falar sobre o site-->
   <section class="sobrenos">
     <h1 id="sobrenos">Sobre nós:</h1><br>
-  
+
     <div class="sobrenos-text">
       <p> Somos uma página dedicada ao compartilhamento de conteúdos que envolvam o clube Sport Clube Corinthians
         Paulista.
@@ -111,31 +127,31 @@
         Seja bem-vindo!
       </p>
     </div>
-    
+
   </section>
 
-  
+
   <!-- Siga-nos -->
   <div class="redes-sociais">
     <div class="siganos-cards">
       <h1>Siga o Corinthians nas redes!</h1>
       <div class="plataforma">
         <div><a href="https://www.instagram.com/corinthians?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-          <img src="./imgs/imgIndex/icons8-instagram-50.png" alt="" width="40px" height="40px"></a></div>
-        
-          <div><a href="https://x.com/Corinthians">
-          <img src="./imgs/imgIndex/icons8-twitter-60.png" alt="" width="50x" height="50px"></a></div>
-        
-          <div> <a href="https://www.linkedin.com/company/sccorinthians">
-          <img src="./imgs/imgIndex/icons8-linkedin-50.png" alt="" width="40px" height="40px"></a></div>
-        
-          <div><a href="https://github.com/joaoopedro011/ProjetoIndividual">
+            <img src="./imgs/imgIndex/icons8-instagram-50.png" alt="" width="40px" height="40px"></a></div>
+
+        <div><a href="https://x.com/Corinthians">
+            <img src="./imgs/imgIndex/icons8-twitter-60.png" alt="" width="50x" height="50px"></a></div>
+
+        <div> <a href="https://www.linkedin.com/company/sccorinthians">
+            <img src="./imgs/imgIndex/icons8-linkedin-50.png" alt="" width="40px" height="40px"></a></div>
+
+        <div><a href="https://github.com/joaoopedro011/ProjetoIndividual">
             <img src="./imgs/imgIndex/icons8-github-60.png" alt="" width="40px" height="40px"></a>
-          </div>
         </div>
       </div>
-      
- <hr style="width:100%;
+    </div>
+
+    <hr style="width:100%;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -143,57 +159,69 @@
   margin-top: 150px;
   border: 2px solid #fff;">
 
-      </div>
+  </div>
 
-      <!-- SESSAO DO FOOTER -->
-        <div class="footer-site">
-          <div class="container-footer">
-            <div class="faleconosco">Fale conosco:
-              <img class="imgIndex" src="./imgs/imgIndex/email.png" alt="" width="30px" height="30px"><img class="imgIndex"
-            src="./imgs/imgIndex/wpp.png" alt="" width="30px" height="30px">
-              </div>
-            <div class="links">
-                      <ul>
-                          <li><a href="#hero">Home</a></li>
-                          <li><a href="#blog">Blog</a></li>
-                          <li><a href="#sobrenos">Sobre nós</a></li>
-                          <li><a href="#contato">Contato</a></li>
-                      </ul>
-                  </div>
-                </div>
-              </div>
-                    <span class="direitos">
-                      <!-- Mensagem direitos da lista -->
-                      <p>Universo SCCP. Para os fiéis de coração!</p>
-                    </span>
-      
-  </body>
+  <!-- SESSAO DO FOOTER -->
+  <div class="footer-site">
+    <div class="container-footer">
+      <div class="faleconosco">Fale conosco:
+        <img class="imgIndex" src="./imgs/imgIndex/email.png" alt="" width="30px" height="30px"><img class="imgIndex"
+          src="./imgs/imgIndex/wpp.png" alt="" width="30px" height="30px">
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#sobrenos">Sobre nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="direitos">
+    <!-- Mensagem direitos da lista -->
+    <p>Universo SCCP. Para os fiéis de coração!</p>
+  </span>
+
+
+
+
+
+</body>
+
 </html>
+<script href="./script/noticia.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script>
 
+  
+  
+  
   var proximoJogo = new Date("2025-05-29T16:00:00").getTime();
   var timer = document.getElementById("timer");
   setInterval(() => {
     var agora = new Date().getTime();
     var distancia = proximoJogo - agora;
-
+    
     var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
     var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
     var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
+    
     timer.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s para o Projeto! Vamos, Corinthians!`;
   }, 1000);
+  
+  
 
-  function game(){
-    window.location.href= '../public/gameComSeta.html'
+  function game() {
+    window.location.href = '../public/gameComSeta.html'
   }
-  function historia(){
-    window.location.href= '../public/historia.html'
+  function historia() {
+    window.location.href = '../public/historia.html'
   }
-  function noticias(){
-    window.location.href= '../public/noticia.html'
-  }
+  
+  function noticia1(chave){
+    sessionStorage.setItem("idNoticia", chave);
+    window.location.href = './noticiasConteudo/noticia1.html';
+}
 </script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
