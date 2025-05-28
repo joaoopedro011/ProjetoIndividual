@@ -1,5 +1,6 @@
- 
- 
+  
+
+
  function cadastrar(){
       var nome = nome_input.value;
       var email = email_input.value;
@@ -34,7 +35,7 @@
         if (resposta.ok) {
 
           setTimeout(() => {
-            window.location.href = "../public/login.html";
+            window.location = "./login.html";
           }, "2000");
 
           limparFormulario();
@@ -56,16 +57,3 @@
       
     }
 
-
-    function entrar(){
-       if (nome == ''|| email == ''|| senha == '' || confirmarSenha == ''){
-        alert('Todos os campos são obrigatórios!')
-      }
-     else{
-          setTimeout(() => {
-            alert('Seja bem vindo!')
-            window.location = "./dashboard/dashboard.html";
-          }, "2000");
-
-    }
-  }

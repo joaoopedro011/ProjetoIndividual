@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="icon" href="assets/icon/favicon2.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script href="./cadastro.html"></script>
+    <script src="./script/cadastro.js"></script>
+    <script src="./script/sessao.js"></script>
 </head>
 
-<body>
+
 
     <!--Header-->
 
@@ -40,15 +41,14 @@
                 <div class="formulario">
                     <div class="campo">
                         <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
+                        <input id="email_input" value="matheus@sptech.school" type="text" placeholder="Login">
                     </div>
                     <div class="campo">
                         <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
+                        <input id="senha_input" value="123" type="password" placeholder="******">
                     </div>
-                    <button class="botao" onclick entrar()>Entrar</button>
+                    <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
-
             </div>
             <video src="./imgs/imgIndex/VideoLogin (2).mp4" autoplay loop muted playinline>
         </div>
@@ -56,11 +56,73 @@
 
     
 </body>
-</body>
 
-</html>
 <script>
-function entrar(){
-    window.location.href = "./dashboard/dashboard.html"
-}
+    function entrar(){
+    //   aguardar();
+
+        var email = email_input.value;
+        var senha = senha_input.value;
+
+       if (email == ''|| senha == ''){
+        alert('Todos os campos são obrigatórios!')
+      }
+     else {
+      alert('Seja-bem vindo fiel!')
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log(resposta)
+
+            console.log("ESTOU NO THEN DO entrar()!")
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+  
 </script>
+</html>

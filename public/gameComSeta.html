@@ -10,15 +10,15 @@
     <title>Document</title>
 </head>
 
-<body>
-
-        <div id="marcador">
+<body>  
+    <h2 id="cronometro">30</h2>
+    <div id="marcador">
         <p id="gols" class="numero">0</p>
         <p id="erro" class="numero">0</p>
-        </div>
+    </div>
 
 
-
+        
          <button onclick="colocar()" id="colocar">Colocar bola</button>
          <div id="bola"></div>
          <div id="goleiro"></div>
@@ -40,17 +40,28 @@
 
       
 
+        
+        
+        var tempo = 30;
+        var elementoCronometro = document.getElementById("cronometro");
 
+        const atualizarCronometro = () => {
+            if (tempo>0){
+                elementoCronometro.textContent = tempo;
+                tempo--;
+            }
+            else {
+                elementoCronometro.textContent = "O tempo acabou!!"
+            }
+            clearInterval(intervalo);
+        };
+        const intervalo = setInterval(atualizarCronometro, 1000);
+        
+        
 
-
-
-
-
-
-        function iniciarLoopColocar() {
-            colocar();
-           setTimeout(iniciarLoopColocar, 3000); // Repetirá a cada 3 segundos
-    
+        function iniciarLoopColocar(){
+           setTimeout(iniciarLoopColocar, 6000); // Repetirá a cada 6 segundos
+           
             const bola1 = document.querySelector("#bola");
             bola1.classList.add("colocarBola");
 
@@ -94,14 +105,15 @@
                 goleiro1.classList.remove("aniesq");
             }, { once: true });
 
-
+            
         }
-
+        iniciarLoopColocar();
+        
         let erro1 = document.querySelector("#erro")
         let marcador1 = 1;
         let gols1 = document.querySelector("#gols")
         let marcador2 = 1;
-    
+        
 
 
 
@@ -137,6 +149,7 @@
 
         }
         function mid() {
+            
             const bola1 = document.querySelector("#bola");
 
 
@@ -164,7 +177,7 @@
 
             }
 
-
+            
 
 
         }
@@ -218,7 +231,7 @@
         });
         
 
-
+        
     </script>
 </body>
 
