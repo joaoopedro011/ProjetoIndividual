@@ -75,12 +75,12 @@
     margin-bottom: 30px
   }
   
-  .but_cadastro, .but_entrar {
+  .but_cadastrar{
     padding: 10px 0px;
     border: none;
     border-radius: 25px;
     background-color: var(--branco);
-    color: #000;
+    color: var(--preto);
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
@@ -106,14 +106,14 @@
   
   .blog h2 {
     font-size: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
   
   .blog-cards {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
-    margin-left: 100px;
+    margin-left: 120px;
   }
   
   .card {
@@ -192,7 +192,6 @@
 
     padding: 10px;
     width: 25%;
-    border-radius: 15px;
     display: flex;
     justify-content: center;
     margin-left: 280px;
@@ -201,10 +200,19 @@
     margin-top: 0px;
     padding: 10px;
     width: 25%;
-    border-radius: 15px;
     display: flex;
     justify-content: flex-end;
     margin-left: 80px;
+  }
+  .sobrenos button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--branco);
+    color: var(--preto);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
   }
 
 
@@ -217,7 +225,7 @@
     flex-direction: column;
     margin-top: 180px;
     justify-content: space-around;
-    border-bottom: 10px var(--branco)fff;
+    border-bottom: 10px var(--branco);
   }
   
   .redes-sociais h1 {

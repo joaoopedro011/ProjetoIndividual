@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles/game2.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles/game2.css">
+
+    <title>Pênaltis!</title>
+
 </head>
 
 <body>  
-    <h2 id="cronometro">30</h2>
     <div id="marcador">
+        <h2 id="cronometro">20</h2>
         <p id="gols" class="numero">0</p>
         <p id="erro" class="numero">0</p>
     </div>
@@ -25,42 +25,84 @@
          <div id="flechas">
         
         <span class="material-symbols-outlined" onclick="esq()">
-            arrow_back
+            ESQ
         </span>
         <span class="material-symbols-outlined" onclick="mid()">
-            arrow_upward
+           MEIO
         </span>
         <span class="material-symbols-outlined" id="dir" onclick="dir()">
-            arrow_forward
+            DIR
         </span>
     </div>
 
 
     <script>
+        let marcador1 = 1;
+        let marcador2 = 1;
 
-      
-
-        
-        
-        var tempo = 30;
+        var bloquear = true;
+        var tempo = 20;
         var elementoCronometro = document.getElementById("cronometro");
 
         const atualizarCronometro = () => {
+console.log("ID do usuário:", id);
             if (tempo>0){
                 elementoCronometro.textContent = tempo;
                 tempo--;
             }
-            else {
-                elementoCronometro.textContent = "O tempo acabou!!"
-            }
-            clearInterval(intervalo);
-        };
+            else if(tempo == 0){
+            {
+                elementoCronometro.textContent = "O tempo acabou!!" 
+                
+                esq.onclick = bloquear;
+                dir.onclick = bloquear;
+                mid.onclick = bloquear;
+                esq.event.key === 'ArrowLeft' == bloquear
+                mid.event.key === 'ArrowUp' == bloquear
+                dir.event.key === 'ArrowRight' == bloquear
+
+                clearInterval(intervalo);
+
+                fetch("/games/cadastrar", {
+                     method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/game.js
+                    idServer: id,
+                    errosServer: marcador1,
+                    acertosServer: marcador2,
+
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            console.log('Enviando para o banco de dados...')
+        } else {
+          throw "Houve um erro ao tentar enviar dados para o banco!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+       setTimeout(() => {
+                window.location = "login.html"
+            }, 3000);
+
+    return false;
+    }
+}
+}
         const intervalo = setInterval(atualizarCronometro, 1000);
         
         
 
         function iniciarLoopColocar(){
-           setTimeout(iniciarLoopColocar, 6000); // Repetirá a cada 6 segundos
+           setTimeout(iniciarLoopColocar, 5000); // Repetirá a cada 5 segundos
            
             const bola1 = document.querySelector("#bola");
             bola1.classList.add("colocarBola");
@@ -110,9 +152,7 @@
         iniciarLoopColocar();
         
         let erro1 = document.querySelector("#erro")
-        let marcador1 = 1;
         let gols1 = document.querySelector("#gols")
-        let marcador2 = 1;
         
 
 
@@ -120,7 +160,7 @@
         function dir() {
 
 
-
+        if (bloquear == false) {
             const bola1 = document.querySelector("#bola");
             bola1.classList.add("animar");
 
@@ -131,8 +171,10 @@
             const movimentoAleatorio = movimentos[Math.floor(Math.random() * movimentos.length)];
 
 
+            bloquear = true;
             goleiro1.classList.add(movimentoAleatorio)
 
+            
             if (movimentoAleatorio == "anidir") {
                 setTimeout(function () {
                     alert("Perdeeu o pênalti!");
@@ -145,11 +187,13 @@
                 marcador2++;
 
             }
-
-
+            }
+        bloquear = false;
         }
+
+
         function mid() {
-            
+            if (bloquear == false) {
             const bola1 = document.querySelector("#bola");
 
 
@@ -162,6 +206,7 @@
             const movimentoAleatorio = movimentos[Math.floor(Math.random() * movimentos.length)];
 
 
+            bloquear = true;
             goleiro1.classList.add(movimentoAleatorio)
 
 
@@ -170,18 +215,21 @@
                     alert("Perdeeeu o pênalti!");
                     erro1.textContent = marcador1
                     marcador1++;
+                    
                 }, 1000);
             } else {
                 gols1.textContent = marcador2
                 marcador2++;
-
+                
             }
-
-            
-
-
         }
+        bloquear = false;
+    }
+
+
+
         function esq() {
+             if (bloquear == false) {
             const bola1 = document.querySelector("#bola");
 
             bola1.classList.add("animaresq");
@@ -193,21 +241,25 @@
             const movimentoAleatorio = movimentos[Math.floor(Math.random() * movimentos.length)];
 
 
+            bloquear = true;
             goleiro1.classList.add(movimentoAleatorio) 
+
 
             if (movimentoAleatorio == "aniesq") {
                 setTimeout(function () {
                     alert("Perdeeeu o pênalti!");
                    erro1.textContent = marcador1
                     marcador1++;
+                    
                 }, 1000);
             } else {
                 gols1.textContent = marcador2
                 marcador2++;
                 
             }
-            
-            
+        }
+        
+        bloquear = false;
         }
         
         

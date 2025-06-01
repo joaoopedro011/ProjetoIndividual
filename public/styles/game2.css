@@ -179,7 +179,9 @@ body{
     color: #fff;
  display: flex;
  justify-content: center;
- margin-top: 10px;
+ position: absolute;
+ right: 61px;
+ bottom: 40px;
   }
 
   #marcador{
@@ -191,6 +193,8 @@ body{
     background-repeat: no-repeat;
     text-align: center;
     justify-content: center;
+    position: relative;
+    
   }
 
 

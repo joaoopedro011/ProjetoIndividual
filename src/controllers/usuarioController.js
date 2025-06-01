@@ -33,7 +33,7 @@ function autenticar(req, res) {
                         //             res.status(204).json({ aquarios: [] });
                         //         }
                         //     })
-                        res.json({  id: resultadoAutenticar[0].id,
+                        res.json({  idUsuario: resultadoAutenticar[0].idUsuario,
                                          email: resultadoAutenticar[0].email,
                                          nome: resultadoAutenticar[0].nome,
                                          senha: resultadoAutenticar[0].senha,})

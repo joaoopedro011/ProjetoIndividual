@@ -73,14 +73,16 @@ body {
 
 .dash-right .avisos .div-form input {
   width: 95%;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
   border: 3px solid var(--preto);
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .dash-right .avisos .div-form button {

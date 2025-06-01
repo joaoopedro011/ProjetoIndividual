@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../imgs/imgIndex/icons8-corinthians-50.png" type="image/x-icon">
+
+
 </head>
 
 <body>
@@ -37,8 +39,7 @@
         <h3>Próximo jogo em:</h3>
         <div id="timer">Carregando...</div>
       </div>
-      <button class="but_cadastro" onclick="entrar()"><a href="login.html">Entrar</a></button>
-      <button class="but_entrar" onclick="entrar()"><a href="cadastro.html">Cadastrar-se</a></button>
+      <button class="but_cadastrar" onclick="entrar()"><a href="cadastro.html">Cadastrar-se</a></button>
     </div>
     <div class="hero-image">
       <video src="./imgs/imgIndex/BASTIDORES DA LOUCURA ｜ TEASER.mp4" alt="videoSiteEdit" autoplay loop muted
@@ -55,7 +56,7 @@
   <div>
     <h2 class="titulo">Acompanhe as principais notícias:</h2>
     <swiper-container class="mySwiper" loop autoplay-delay="3000" autoplay-disable-on-interaction="false"
-      space-between="45" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+      space-between="45" effect="coverflow" grab-cursor="true" centered-slides="true"
       coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
       coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" slides-per-view="2">
       <swiper-slide><img data-value="0" onclick="noticia1(this.dataset.value)" src="./imgs/imgNoticia/noticia1(2).png" alt=""></a>
@@ -110,9 +111,9 @@
   </section>
 
   <!-- Area para falar sobre o site-->
-  <section class="sobrenos">
-    <h1 id="sobrenos">Sobre nós:</h1><br>
-
+  <section class="sobrenos" id="sobrenos">
+    <h1>Sobre nós:</h1><br>
+    
     <div class="sobrenos-text">
       <p> Somos uma página dedicada ao compartilhamento de conteúdos que envolvam o clube Sport Clube Corinthians
         Paulista.
@@ -124,29 +125,31 @@
       <p>
         Mais do que um time, o Corinthians faz parte de nossa identidade. E esse espaço é um ponto de encontro para quem
         vive essa paixão todos os dias.
-        Seja bem-vindo!
+        Seja bem-vindo!<br>
+        <button onclick="saibamais()">Saiba Mais</button>
       </p>
+      <br>
     </div>
-
+    
   </section>
 
 
   <!-- Siga-nos -->
-  <div class="redes-sociais">
+  <div class="redes-sociais" id="siganos">
     <div class="siganos-cards">
       <h1>Siga o Corinthians nas redes!</h1>
       <div class="plataforma">
         <div><a href="https://www.instagram.com/corinthians?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-            <img src="./imgs/imgIndex/icons8-instagram-50.png" alt="" width="40px" height="40px"></a></div>
+            <img src="./imgs/imgIndex/instagram.png" alt="" width="40px" height="40px"></a></div>
 
         <div><a href="https://x.com/Corinthians">
-            <img src="./imgs/imgIndex/icons8-twitter-60.png" alt="" width="50x" height="50px"></a></div>
+            <img src="./imgs/imgIndex/twitter.png" alt="" width="50x" height="50px"></a></div>
 
         <div> <a href="https://www.linkedin.com/company/sccorinthians">
-            <img src="./imgs/imgIndex/icons8-linkedin-50.png" alt="" width="40px" height="40px"></a></div>
+            <img src="./imgs/imgIndex/linkedin.png" alt="" width="45px" height="45px"></a></div>
 
         <div><a href="https://github.com/joaoopedro011/ProjetoIndividual">
-            <img src="./imgs/imgIndex/icons8-github-60.png" alt="" width="40px" height="40px"></a>
+            <img src="./imgs/imgIndex/github.png" alt="" width="50px" height="50px"></a>
         </div>
       </div>
     </div>
@@ -223,5 +226,8 @@
   function noticia1(chave){
     sessionStorage.setItem("idNoticia", chave);
     window.location.href = './noticiasConteudo/noticia1.html';
+}
+function saibamais(){
+    window.location.href = './sobremim.html';
 }
 </script>
