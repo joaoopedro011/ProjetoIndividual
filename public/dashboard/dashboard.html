@@ -7,256 +7,258 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniversoSCCP | Dashboards</title>
-
     
-    <link rel="stylesheet" href="../styles/dashboards.css">
+    
     <script src="../script/sessao.js"></script>
-
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    <link rel="stylesheet" href="../styles/dashboard2.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-
+    
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+   
 </head>
 
 <!-- <body onload=" atualizarFeed()"> -->
-
-<body>
-
-<header class="navbar">
-    <div class="logo">
-      <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
-        height="40" style="filter: grayscale(1);">
-    </div>
-    <nav class="nav-links">
-      <a href="../index.html">HOME</a>
-      <a href="../gameComSeta.html">GAME</a>
-    </nav>
-    <div class="search"> Search</div>
-  </header>
-
-
-    <div class="janela">
-        <div class="header-left">
-            <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
-        height="70" style="filter: grayscale(1);">
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">. Bem vindo de volta</span>!</h3>
-            </div>
-
-            
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_usuario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
-        </div>
-    </div>
-
-
-</body>
-
-</html>
-
-<script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-    let proximaAtualizacao;
-
-    window.onload = exibirUsuarioDoUsuario();
-
-    function obterDadosGrafico() {
-        fetch(`/grafico/classes`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-                    plotarGraficoClasse(resposta);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-
-        fetch(`/grafico/fezQuiz`, { cache: 'no-store' }).then(function (responseQuiz) {
-            if (responseQuiz.ok) {
-                responseQuiz.json().then(function (respostaQuiz) {
-                    console.log(`Dados recebidos: ${JSON.stringify(respostaQuiz)}`);
-                    respostaQuiz.reverse();
-                    plotarGraficoQuiz(respostaQuiz);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGraficoClasse(resposta) {
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = ["Melee", "Ranged", "Summoner", "Mago"];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Melee',
-                data: [123,132,123,342],
-                fill: false,
-                borderColor: 'rgb(0, 0, 0)',
-                backgroundColor: 'rgb(255, 165, 0)',
-                tension: 0.1
-            },
-            {
-                label: 'Ranged',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(0, 0, 0)',
-                backgroundColor: 'rgb(137, 243, 169)',
-                tension: 0.1
-            },
-            {
-                label: 'Summoner',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(0, 0, 0)',
-                backgroundColor: 'rgb(98, 196, 235)',
-                tension: 0.1
-            },
-            {
-                label: 'Mago',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(0, 0, 0)',
-                backgroundColor: 'rgb(128, 0, 128)',
-                tension: 0.1
-            },]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta);
-        console.log(resposta);
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            let indexClasse = labels.indexOf(registro.classe);
-
-            if (indexClasse != -1) {
-                dados.datasets[indexClasse].data[indexClasse] = registro.qtd;
-            }
-        }
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels Classe:')
-        console.log(labels)
-        console.log('Dados Classe:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'bar',
-            data: dados,
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let chartClass = new Chart(
-            document.getElementById(`graficoClasse`),
-            config
-        );
     
-        comum.innerHTML = `${dados.datasets[indiceMaior].label} (${maior} ${msgMaior})`
-        menosComum.innerHTML = `${dados.datasets[indiceMenor].label} (${menor} ${msgMenor})`
+    <body>
+        
+        <div class="janela">
+            <div class="header-left">
+                <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
+                height="70" style="filter: grayscale(1);">
+                <body><!-- onload="validarSessao()" -->
+                    
+                    
+                    <div class="hello">
+                        <h1><br>Olá,<span id="b_usuario"></span></h1>
+                        <div class="btn-nav"><a href="./dashboard.html">
+                            <h3>Painel</h3>
+                        </a></div>
+                        <div class="btn-nav"><a href="../quiz.html">
+                            <h3>Quiz</h3>
+                        </a></div>
+                        <div class="btn-logout" onclick="limparSessao()">
+                            <h3>Sair</h3>
+                        </div>
+                    </div>
+                    </div>
+                         <div class="conteudo-direita">
+                            <div class="kpis">
+                             <div class="kpi">
+                <h4>Maior Pontuação no quiz:</h4>
+                <br>
+                <span id="fácil1"></span>
+            </div> <div class="kpi">
+                <h4>Menor Pontuação no quiz:</h4>
+                <br>
+                <span id="fácil2"></span>
+            </div>
+                            </div>
+                        <!-- <div class="Titulo-grafico"><div><h2>Quantidade de Pontos:</h2></div></div> -->
+                        <div class="grafico">
+                            <div style="width: 80vh; height: 100%;">
+                                <canvas id="graficoline"></canvas>
+                            </div>
+
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    <div class="conteudo"></div>
+
+    </div>
+           
+</body>
+<script>
+    var idUsuario = Number(sessionStorage.ID_USUARIO)
+window.onload = () => {
+      pegarEstatisticas(),
+      validarSessao(), 
+      grafico(),
+    //   jogados(),
+      pontuacao()
     }
 
-    function plotarGrafico(resposta) {
+    function grafico() {
 
-        console.log('iniciando plotagem do gráfico...');
-        // Criando estrutura para plotar gráfico - labels
-        var participouQuiz = respostaQuiz[0].FezQuiz;
-        var naoParticipouQuiz = respostaQuiz[0].Diferença;
-        let labelsQuiz = ["Participante do Quiz", "Não participante"];
-        let dadosQuiz = {
-            labels: labelsQuiz,
-            datasets: [{
-                label: 'Informações Quiz',
-                data: [participouQuiz, naoParticipouQuiz],
-                fill: false,
-                backgroundColor: ['rgb(137, 243, 169)', 'rgb(98, 196, 235)'],
-                borderColor: 'rgb(0, 0, 0)',
-                tension: 0.1
-            }]
-        };
+  fetch(`/dashboard/grafico/${idUsuario}`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json",
+      }
+  })
+  .then(
+        function (resposta) {
+      if (resposta.ok) {
+          return resposta.json();
+      } else {
+          throw "Erro ao buscar dados no data base";
+      }
+  })
+  .then(
+    function (exibirDados) {
+    console.log(exibirDados)
+    var pontos = []
+    var rodada = []
+    for(var i = 0; i < exibirDados.length; i++){
+        var pontosAtual = exibirDados[i].pontos
+        pontos.push(pontosAtual)
+        // exibirDados.reverse()
+        var rodadaAtual = exibirDados[i].Rodada
+        rodada.push('Rodada' + rodadaAtual)
+        exibirDados.reverse()
+    }
+      var ctx = document.getElementById('graficoline').getContext('2d');
+      new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: rodada,
+              datasets: [{
+                  label: 'Pontos',
+                  data: pontos,
+                  borderColor: '#fff',
+                  backgroundColor: 'white',
+                  dados: []
+              }]
+          },
+          options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Pontuação do Quiz',
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+              responsive: true,
+              scales: {
+                  y: { beginAtZero: true }
+              }
+          }
+      });
+  
+      for (var i = 0; i < exibirDados.length; i++) {
+          data.datasets[0].dados.push(exibirDados[i].pontos);
+      }
 
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(respostaQuiz);
+    })
+  .catch(
+    function(erro) {
+      console.log(`#ERRO: ${erro}`);
+  });
+}
 
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels Quiz:');
-        console.log(labelsQuiz);
-        console.log('Dados Quiz:');
-        console.log(dadosQuiz.datasets);
-        console.log('----------------------------------------------')
+    function pegarEstatisticas() {
+        var idUsuario = sessionStorage.getItem('ID_USUARIO');
+        
+        fetch(`/dashboard/pontuacao/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then(function (resposta) {
+            console.log(resposta);
+    
+            if (resposta.ok) {
+              console.log('Busquei os dados das KPIs', resposta)
+              return resposta.json();
+            } else {
+              throw "Erro ao buscar dados no data base";
+            }
+          })
+          .then(function (exibirDados) {
+            console.log(exibirDados);
 
-        // Criando estrutura para plotar gráfico - config
+        // var elementoPorcentagem = document.getElementById("Porcentagem");
 
-        const configQuiz = {
-            type: 'pie',
-            data: dadosQuiz,
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let chartQuiz = new Chart(
-            document.getElementById(`graficoQuiz`),
-            configQuiz
-        );
-
-        console.log(participouQuiz);
-        console.log(naoParticipouQuiz);
-        usoQuiz.innerHTML = `${(participouQuiz / (participouQuiz + naoParticipouQuiz) * 100).toFixed(2)}%`
+        // if (exibirDados[0]?.Porcentagem == undefined) {
+        //     elementoPorcentagem.innerHTML = '0%';
+        // } else {
+        //     elementoPorcentagem.innerHTML = `${((100 / exibirDados[0]) * exibirDados[0].Porcentagem)}%`;
+        // }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
     }
 
-</script>
+    // function jogados() {
+    //     var idUsuario = sessionStorage.getItem('ID_USUARIO');
+    //     fetch(`/dashboard/grafico/${idUsuario}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         }
+    //     })
+    //     .then(function (resposta) {
+    //         console.log(resposta);
+    
+    //         if (resposta.ok) {
+    //           console.log('Busquei os dados das KPIs', resposta)
+    //           return resposta.json();
+    //         } else {
+    //           throw "Erro ao buscar dados no data base";
+    //         }
+    //       })
+    //       .then(function (exibirDados) {
+    //         console.log(exibirDados);
+
+    //     var elementoRespondidos = document.getElementById("Respondidos");
+
+    //     if (exibirDados[0]?.respondidos == undefined) {
+    //         elementoRespondidos.innerHTML = '0 / 3';
+    //     } else {
+    //         elementoRespondidos.innerHTML = `${(exibirDados[0].respondidos)} / 3`;
+    //     }
+    // })
+    // .catch(function (resposta) {
+    //     console.log(`#ERRO: ${resposta}`);
+    // });
+    // }
+
+    function pontuacao() {
+        var idUsuario = sessionStorage.getItem('ID_USUARIO');
+        fetch(`/dashboard/pontuacao/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then(function (resposta) {
+            console.log(resposta);
+    
+            if (resposta.ok) {
+              console.log('Busquei os dados das KPIs', resposta)
+              return resposta.json();
+            } else {
+              throw "Erro ao buscar dados no data base";
+            }
+          })
+          .then(function (exibirDados) {
+            console.log(exibirDados);
+
+        // var elementofacil = document.getElementById("fácil");
+        
+
+        if (exibirDados[0].Máxima == undefined && exibirDados[0].Mínima == undefined) {
+            fácil1.innerHTML = '0 / 10';
+            fácil2.innerHTML = '0 / 10'
+        } else {
+            fácil1.innerHTML = `${(exibirDados[0].Máxima) * 10}% / ${(exibirDados[0].Máxima)} de 10`;
+            fácil2.innerHTML = `${(exibirDados[0].Mínima) * 10}% /  ${(exibirDados[0].Mínima)} de 10`;
+        }
+
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    }
+    </script>

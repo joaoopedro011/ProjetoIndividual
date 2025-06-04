@@ -37,64 +37,69 @@
 
 
     <script>
-        let marcador1 = 1;
-        let marcador2 = 1;
-
+        let marcador1 = 0;
+        let marcador2 = 0;
+        var idUsuario = sessionStorage.ID_USUARIO
+        var idRodada = sessionStorage.ID_RODADA
+        
         var bloquear = true;
-        var tempo = 20;
+        var tempo = 10;
         var elementoCronometro = document.getElementById("cronometro");
-
+        
         const atualizarCronometro = () => {
-console.log("ID do usuário:", id);
             if (tempo>0){
                 elementoCronometro.textContent = tempo;
                 tempo--;
             }
             else if(tempo == 0){
-            {
-                elementoCronometro.textContent = "O tempo acabou!!" 
+                {
+                    
+                    esq.onclick =null;
+                dir.onclick = null;
+                mid.onclick = null;
+                esq.event === 'ArrowLeft' == null
+                mid.event === 'ArrowUp' == null
+                dir.event === 'ArrowRight' == null
+                console.log(`ID do usuário: ${idUsuario}`);
+                console.log(`ID Rodada: ${idRodada}`)
                 
-                esq.onclick = bloquear;
-                dir.onclick = bloquear;
-                mid.onclick = bloquear;
-                esq.event.key === 'ArrowLeft' == bloquear
-                mid.event.key === 'ArrowUp' == bloquear
-                dir.event.key === 'ArrowRight' == bloquear
-
                 clearInterval(intervalo);
-
+                console.log("marc 1 esquerda:" + marcador1);
+                console.log("marc 2 direita" + marcador2);
+                var user = sessionStorage.ID_USUARIO;
+                console.log(user);
                 fetch("/games/cadastrar", {
                      method: "POST",
-                    headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/game.js
-                    idServer: id,
-                    errosServer: marcador1,
-                    acertosServer: marcador2,
-
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
+                     headers: {
+                         "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            // crie um atributo que rece be o valor recuperado aqui
+                            // Agora vá para o arquivo routes/game.js
+                            erroServer: marcador1,
+                            acertoServer: marcador2,
+                            idServer: user                          
+                        }),
+                    })
+                    .then(function (resposta) {
+                        console.log("resposta: ", resposta);
+                        alert('FIM DE JOGO!!') 
+                        // setTimeout(() => {
+                        //          window.location = "../dashboard/dashboard.html"
+                        //      }, 3000);
+                        
         if (resposta.ok) {
             console.log('Enviando para o banco de dados...')
         } else {
-          throw "Houve um erro ao tentar enviar dados para o banco!";
+            throw "Houve um erro ao tentar enviar dados para o banco!";
         }
-      })
-      .catch(function (resposta) {
+    })
+    .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-      });
-       setTimeout(() => {
-                window.location = "login.html"
-            }, 3000);
-
+    });
+    
     return false;
-    }
+}
 }
 }
         const intervalo = setInterval(atualizarCronometro, 1000);
@@ -102,7 +107,7 @@ console.log("ID do usuário:", id);
         
 
         function iniciarLoopColocar(){
-           setTimeout(iniciarLoopColocar, 5000); // Repetirá a cada 5 segundos
+           setTimeout(iniciarLoopColocar, 4000); // Repetirá a cada 5 segundos
            
             const bola1 = document.querySelector("#bola");
             bola1.classList.add("colocarBola");

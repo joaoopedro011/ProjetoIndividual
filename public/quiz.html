@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Interativo</title>
+  <link rel="stylesheet" href="./styles/quiz.css">
+  <link rel="icon" href="../assets/icon/icon01.webp">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../imgs/imgIndex/icons8-corinthians-50.png" type="image/x-icon">
+
+</head>
+
+ <header class="navbar">
+    <div class="logo">
+      <img src="https://static.corinthians.com.br/img/icones/usccp_H_dourado.png" alt="Universo SCCP" width=""
+        height="40" style="filter: grayscale(1);">
+    </div>
+    <nav class="nav-links">
+      <a href="./index.html">HOME</a>
+      <a href="./gameComSeta.html">GAME</a>
+      <a href="#sobrenos">SOBRE NÓS</a>
+      <a href="#siganos">SIGA-NOS</a>
+    </nav>
+    <div class="search"> Search</div>
+  </header>
+    <div class="conteudo">
+      <div class="quiz-escolha">
+        <button onclick="escolherQuiz(0)">Quiz</button>
+      </div>
+    
+
+    <!-- Coloque aqui dentro da .pagina -->
+    <div id="pontuacaoEJogo">
+      <div class="placar">
+        Pontuação: <span id="placar">0</span>
+      </div>
+      <div class="questoes">
+        <div class="questao" id="pergunta">Pergunta aqui</div>
+        <div class="alternativas">
+          <button id="A" onclick="verificarResposta('A')">A</button>
+          <button id="B" onclick="verificarResposta('B')">B</button>
+          <button id="C" onclick="verificarResposta('C')">C</button>
+          <button id="D" onclick="verificarResposta('D')">D</button>
+        </div>
+        <button id="btnProxima" style="display:none; padding: 10px; border-radius: 10px; border: none;" onclick="proximaPergunta()">Próxima Pergunta</button>
+    </div>
+    <div id="mensagem_erro"></div>
+    </div>
+  </div>
+  </div>
+</html>
+
+    <script>
+        var idVar = Number(sessionStorage.getItem('ID_USUARIO'));
+      
+        const quizzes = [
+            [            
+                {
+                    pergunta: "Quem é o maior artilheiro da história do Corinthians?",
+                    A: "Cláudio Christóvam",
+                    B: "Baltazar",
+                    C: "Emerson Sheik",
+                    D: "Teleco",
+                    correta: "A"
+                },
+                {
+                    pergunta: "Em que ano foi fundado o Corinthians?",
+                    A: "1908",
+                    B: "1910",
+                    C: "1912",
+                    D: "1920",
+                    correta: "B"
+                },
+                {
+                    pergunta: "Quem foi o primeiro presidente do Corinthians?",
+                    A: "Vicente Matheus",
+                    B: "Waldemar Pires",
+                    C: "Miguel Battaglia",
+                    D: "Sócrates",
+                    correta: "C"
+                },
+                {
+                    pergunta: "Qual é o apelido mais conhecido do Corinthians?",
+                    A: "Peixão",
+                    B: "Timão",
+                    C: "Galo",
+                    D: "Peixe",
+                    correta: "B"
+                },
+                {
+                    pergunta: "Quando o Corinthians ganhou seu primeiro mundial?",
+                    A: "2012",
+                    B: "2000",
+                    C: "1990",
+                    D: "2002",
+                    correta: "B"
+                },
+                {
+                    pergunta: "Qual foi o PRIMEIRO título importante do Corinthians?",
+                    A: "Campeonato Paulista",
+                    B: "Libertadores",
+                    C: "Copa do Brasil",
+                    D: "Campeonato Brasileiro",
+                    correta: "A"
+                },
+                {
+                    pergunta: "Quem foi o técnico na conquista do mundial de 2012?",
+                    A: "Felipão",
+                    B: "Oliveira",
+                    C: "Telê Santana",
+                    D: "Tite",
+                    correta: "D"
+                },
+                {
+                    pergunta: "Qual estádio foi utilizado pelo Corinthins por décadas, antes da Neo Química?",
+                    A: "Canindé",
+                    B: "Morumbi",
+                    C: "Pacaembu",
+                    D: "Maracanã",
+                    correta: "C"
+                },
+                {
+                    pergunta: "Quantas vezes o Corinthians venceu o Campeonato Brasileiro?",
+                    A: "15 vezes",
+                    B: "10 vezes",
+                    C: "7 vezes",
+                    D: "12 vezes",
+                    correta: "C"
+                },
+                {
+                    pergunta: "Qual desses nomes NÃO é ídolo pelo Corinthians?",
+                    A: "Neto",
+                    B: "Sócrates",
+                    C: "Marcelinho Carioca",
+                    D: "Paolo Guerrero",
+                    correta: "D"
+                }
+            ]]
+            ;
+
+        var questoes = [];
+        var indiceAtual = 0;
+        var pontos = 0;
+        var numeros;
+
+
+        function escolherQuiz(numero) {
+            questoes = quizzes[numero];
+            numeros = numero
+            indiceAtual = 0;
+            pontos = 0;
+            document.getElementById("placar").innerText = pontos;
+            document.getElementById('pontuacaoEJogo').style.display = 'flex';
+            mostrarQuestao();
+        }
+
+        function mostrarQuestao() {
+            if (indiceAtual >= questoes.length) {
+                alert("Quiz finalizado! Pontuação: " + pontos);
+                window.location.reload();
+                return;
+            }
+
+            var q = questoes[indiceAtual];
+            document.getElementById("pergunta").innerText = q.pergunta;
+            document.getElementById("A").innerText = q.A;
+            document.getElementById("B").innerText = q.B;
+            document.getElementById("C").innerText = q.C;
+            document.getElementById("D").innerText = q.D;
+
+            ["A", "B", "C", "D"].forEach(varra => {
+                var btn = document.getElementById(varra);
+                btn.className = '';
+                btn.disabled = false;
+            });
+        }
+
+    function verificarResposta(varra) {
+  var q = questoes[indiceAtual];
+  var botao = document.getElementById(varra);
+
+  if (varra === q.correta) {
+    botao.className = "acertou";
+    pontos++;
+    document.getElementById("placar").innerText = pontos;
+  } else {
+    botao.className = "errou";
+    document.getElementById(q.correta).className = "acertou";
+  }
+
+  ["A", "B", "C", "D"].forEach(btn => document.getElementById(btn).disabled = true);
+
+  // Mostrar botão de próxima ou finalizar
+  const btnProxima = document.getElementById("btnProxima");
+  btnProxima.style.display = "block";
+
+  if (indiceAtual === questoes.length - 1) {
+    btnProxima.innerText = "Finalizar Quiz";
+    btnProxima.onclick = finalizarQuiz;
+  } else {
+    btnProxima.innerText = "Próxima Pergunta";
+    btnProxima.onclick = proximaPergunta;
+  }
+}
+
+function proximaPergunta() {
+  indiceAtual++;
+  mostrarQuestao();
+}
+
+function finalizarQuiz() {
+  console.log(`Pontos: ${pontos}`)
+  alert("Quiz finalizado! Pontuação: " + pontos);
+  fetch(`/quiz/fazerquiz/${idVar}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pontosServer: pontos
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          
+          mensagem_erro.innerHTML =
+          "Informações guardada com sucesso";
+          setTimeout(() => {
+          window.location = "../dashboard/dashboard.html";
+          }, "2000");
+        } else {
+          throw "Houve um erro ao inserir as informações";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+    }
+</script>
+</body>
+</html>
